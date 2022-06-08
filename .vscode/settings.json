@@ -1,0 +1,6 @@
+{
+	"editor.fontFamily": "Operator Mono Lig, Menlo, Monaco, 'Courier New', monospace",
+	"workbench.activityBar.visible": true,
+	"editor.fontLigatures": true,
+	"editor.fontWeight": "100"
+}

@@ -1,0 +1,146 @@
+$color-base: #FFFFFF;
+
+.signup {
+	display: flex;
+	flex-direction: column;
+	align-self: center;
+	padding: 24px 32px 40px;
+	gap: 40px;
+
+	position: absolute;
+	width: 720px;
+	height: 510px;
+	left: 360px;
+	top: 100px;
+
+	color: #000000;
+	background: $color-base;
+	border: 1px solid #F0F0F0;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 8px;
+
+	&-wrapper {
+		width: 656px;
+		height: 100%;
+
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	&-title {
+		width: 203px;
+		height: 33px;
+
+		text-align: center;
+		font-family: 'Avenir';
+		font-style: normal;
+		font-weight: 500;
+		font-size: 24px;
+		line-height: 33px;
+		/* identical to box height */
+
+		color: #000000;
+	}
+
+	&-message {
+		font-family: 'Avenir';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 22px;
+		text-align: center;
+
+		color: #777777;
+
+		a {
+			text-decoration: none;
+		}
+	}
+
+	&-form {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		align-items: center;
+
+		height: 100%;
+		width: 100%;
+
+		input {
+			// margin-bottom: 20px;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+			padding: 10px 12px;
+			background: #FAFAFA;
+			border: 1px solid #E1E1E1;
+			border-radius: 4px;
+			font-size: 15px;
+			gap: 252px;	
+		}
+	}
+
+  &-button {
+		margin-bottom: -15px;
+		width: 100%;
+		height: 30px
+	}
+
+}
+
+.name-grid {
+	width: 100%;
+ 	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-gap: 16px;
+ }
+
+ 
+
+
+.password-rules {
+	margin-top: -40px;
+	display: flex;
+	flex-direction: column;
+	align-self: flex-start;
+	color: #999B9F;
+	// margin-bottom: -40px;
+
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 13px;
+	line-height: 18px;
+
+ }
+
+ .icon {
+	 height: 8px;
+	 width: 8px;
+	 margin: 0px 4px;
+	 
+ }
+
+.passed {
+	color: #07982F;
+	fill: #07982F;
+}
+
+.hidden {
+	display: none;
+}
+
+.show {
+	margin-top: -38px;
+	padding-top: 11px;
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 12px;
+	line-height: 15px;
+	align-self: flex-start;
+
+	color: #F41E10;
+}

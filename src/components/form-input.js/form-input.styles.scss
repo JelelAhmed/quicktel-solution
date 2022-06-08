@@ -1,0 +1,40 @@
+.form-group {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+
+	input {
+
+		letter-spacing: 1.5px;
+		
+		&::placeholder {
+				color: #CACACA;
+			}	
+	}
+
+	label {
+		width: 69px;
+		height: 19px;
+
+		font-family: 'Avenir';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 19px;
+
+		/* Text Color */
+
+		color: #1A1A1A;
+	}
+}
+
+.eye {
+	width: 20px;
+	height: 20px;
+	margin-left: auto;
+	fill: #999F9B;
+	position: relative;
+	top: -30px;
+	margin-right: 20px;
+	cursor: pointer;
+}
