@@ -1,0 +1,61 @@
+.dashboard {
+	background: #E5E5E5;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+
+	align-content: start;
+	align-items: end;
+	z-index: 3;
+
+	width: 100%;
+	height: 100%;
+
+	&-alert {
+		grid-column: 1 / -1;
+	}
+
+	&-header {
+		grid-column: 1 / -1;
+	}
+
+	&-events {
+		grid-column: 1 / -1;
+		background-color: inherit;
+	}
+
+	&-create {
+		grid-column: 1 / -1;
+		display: flex;
+
+		justify-self: end;
+		margin-right: 90px;
+		margin-top: auto;
+		margin-bottom: 30px;
+		cursor: pointer;
+		fill: #004CBD;
+		z-index: 10;
+
+		position: fixed;
+
+		// align-self: end;
+
+	} 
+
+	&-verify {
+		grid-column: -1 / 1;
+		justify-self: center;
+		position: fixed;
+		top: 135px;
+	}
+}
+
+.spinner {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	height: 100px;
+	width: 100px;
+	color: #004CBD;
+	z-index: 1000
+}

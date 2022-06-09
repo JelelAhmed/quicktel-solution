@@ -27,7 +27,7 @@ const SignIn = () => {
 
 	const	handleSubmitSignIn = async (event) => {
 			event.preventDefault();
-			navigate('/home')
+			navigate('/')
 	  // 	await	dispatch(setCurrentUser('/tokens', {
 		// 	email: email,
 		// 	password: password

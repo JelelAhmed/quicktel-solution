@@ -1,10 +1,10 @@
 import React from "react";
-import SignIn from "../../components/sign-in/sign-in.component";
+import Dashboard from "../../components/dashboard/dashboard.component";
 
 
 const Home = () => {
 	return (
-		<SignIn />
+		<Dashboard />
 	)
 };
 
