@@ -15,10 +15,10 @@ const CreateEvent = () => {
 
 
 	const handleEventCreate = () => {
-		dispatch(createEventItem('/items', {
-			name: title,
-			description: body
-		}))
+		// dispatch(createEventItem('/items', {
+		// 	name: title,
+		// 	description: body
+		// }))
   }
 	
 	return (

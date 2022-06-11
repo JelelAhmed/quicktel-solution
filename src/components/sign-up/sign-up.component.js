@@ -1,8 +1,11 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { print } from 'graphql';
+import gql from 'graphql-tag';
 
-// import { setCurrentUser } from "../../redux/user/user.actions";
+
+import { setCurrentUser } from "../../store/user/user.actions";
 import { containsMinlength, containsNumber, containsSymbol, containsUppercase, emailValidation, formValidation, clearFormfields } from "../../store/form/form.actions";
 
 import { ReactComponent as CircleIcon } from '../../assets/circle.svg';
@@ -97,13 +100,25 @@ const	dispatch = useDispatch();
 	const	handleSignUp = async (event) => {
 		event.preventDefault();
 
-		// await dispatch(setCurrentUser('/me', {
-		// 	first_name: firstName,
-  	// 	last_name: lastName,
-  	// 	email: email,
-		// 	password: password
-		// }))
-	}
+		const ADD_SKILL = gql`
+			mutation createUser($firstName: String! $lastName:String!, $email:String!, $password:String!) {
+			createUser(firstName:$firstName, lastName:$lastName, email:$email, password:$password) { 
+				id,
+				firstName,
+				lastName
+			}
+	  }
+  `
+		  dispatch(setCurrentUser('/graphql', {
+				query: print(ADD_SKILL),
+				variables: {
+					firstName: firstName,
+					lastName: lastName,
+					email: email,
+					password: password,
+				},
+			}))
+		}
 	
 	const	handlePasswordChange = (event) => {
 		dispatch(setInputPassword(event.target.value))

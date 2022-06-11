@@ -7,10 +7,6 @@ const INITIAL_STATE = {
 	user: null,
 	firstName: '',
 	lastName: '',
-	email: '',
-	verified: '',
-	verifyToken: null,
-	verifyMessage: '',
 
 	isLoggedIn: false,
 	error: null,
@@ -24,7 +20,6 @@ const INITIAL_STATE = {
 
 	
 
-	token: null,
 };
 
 ////////////////////////////////////////////////
@@ -43,13 +38,7 @@ const userReducer = (state=INITIAL_STATE, action) => {
 			return {
 				...state, 
 				isPending: false,
-				user: action.payload.data.user,
-				firstName: action.payload.data.user.first_name,
-				lirstName: action.payload.data.user.last_name,
-				email: action.payload.data.user.email,
-				verified: action.payload.data.user.email_verified_at,
-				verifyToken: action.payload.data.user.email_verification_token,
-				token: action.payload.data.token,
+				user: action.payload.data.data.createUser,
 				isLoggedIn: true
 			}
 						
@@ -57,7 +46,6 @@ const userReducer = (state=INITIAL_STATE, action) => {
 			return {
 				...state, 
 				error: action.payload,
-				loginErr: true, 
 				isPending: false,
 				isLoggedIn: false
 			}
