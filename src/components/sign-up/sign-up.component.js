@@ -100,17 +100,18 @@ const	dispatch = useDispatch();
 	const	handleSignUp = async (event) => {
 		event.preventDefault();
 
-		const ADD_SKILL = gql`
+		const SIGN_UP = gql`
 			mutation createUser($firstName: String! $lastName:String!, $email:String!, $password:String!) {
-			createUser(firstName:$firstName, lastName:$lastName, email:$email, password:$password) { 
-				id,
-				firstName,
-				lastName
+				createUser(firstName:$firstName, lastName:$lastName, email:$email, password:$password) { 
+					id,
+					firstName,
+					lastName,
+					email,
+				}
 			}
-	  }
-  `
+    `
 		  dispatch(setCurrentUser('/graphql', {
-				query: print(ADD_SKILL),
+				query: print(SIGN_UP),
 				variables: {
 					firstName: firstName,
 					lastName: lastName,
@@ -118,7 +119,7 @@ const	dispatch = useDispatch();
 					password: password,
 				},
 			}))
-		}
+	}
 	
 	const	handlePasswordChange = (event) => {
 		dispatch(setInputPassword(event.target.value))

@@ -2,9 +2,9 @@ import { createSelector } from "reselect";
 
 const selectEvent = state => state.event;
 
-export const selectIsCreate = createSelector(
+export const selectIsAdd = createSelector(
 	[selectEvent],
-	(event) => event.isCreate
+	(event) => event.isAdd
 );
 
 export const selectIsUpdate = createSelector(

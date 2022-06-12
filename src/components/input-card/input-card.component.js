@@ -8,7 +8,7 @@ import './input-card.styles.scss';
 
 const InputCard = ({ 
 	toggleCreateEvent, 
-	handleEventCreate, 
+	handleAddNote, 
 	toggleUpdateEvent,
 	handleEventUpdate, 
 	mode,  
@@ -44,7 +44,7 @@ const InputCard = ({
 							</div>
 							<div className="item-buttons">
 								<button onClick={toggleCreateEvent} className="button inverted">Cancel</button>
-								<button onClick={handleEventCreate} className="button">Create Event</button>
+								<button onClick={handleAddNote} className="button">Create Event</button>
 							</div>
 						</div>
 					</div>

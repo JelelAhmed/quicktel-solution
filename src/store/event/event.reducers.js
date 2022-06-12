@@ -1,4 +1,5 @@
-import eventActionTypes from "./event.types";
+import noteActionTypes from "./event.types";
+
 
 const INITIAL_STATE = {
 	events: [],
@@ -16,7 +17,7 @@ const INITIAL_STATE = {
 	deleteResponse: [],
 
 
-	isCreate: false,
+	isAdd: false,
 	createPending: true,
 	eventItem: [],
 
@@ -30,14 +31,14 @@ const INITIAL_STATE = {
 const eventReducer = (state = INITIAL_STATE, action ) => {
 	switch (action.type) {
 
-		case eventActionTypes.GET_EVENT_SUCCESS:
+		case noteActionTypes.GET_NOTE_SUCCESS:
 			return {
 				...state, 
 				events: action.payload.data.items,
 				isPending: false
 			}
 							
-		case eventActionTypes.GET_EVENT_FAILED: 
+		case noteActionTypes.GET_NOTE_FAILED: 
 			return {
 				...state, 
 				feedbackMessage: action.payload.response.data.message,
@@ -45,29 +46,8 @@ const eventReducer = (state = INITIAL_STATE, action ) => {
 				isPending: false,
 			}
 
-
-
-		case eventActionTypes.TOGGLE_CREATE_EVENT:
-			return {
-				...state,
-				isCreate: !state.isCreate
-			}
-		
-		case eventActionTypes.TOGGLE_UPDATE_EVENT:
-			return {
-				...state,
-				isUpdate: !state.isUpdate,
-				eventToUpdate: action.payload
-			}
-		
-		case eventActionTypes.TOGGLE_DELETE_EVENT:
-		return {
-			...state,
-			isDelete: !state.isDelete,
-			eventToDelete: action.payload
-		}
-
-		case eventActionTypes.CREATE_EVENT_SUCCESS: 
+	
+		case noteActionTypes.ADD_NOTE_SUCCESS: 
 			return {
 				...state,
 				isSuccess: true,
@@ -76,67 +56,19 @@ const eventReducer = (state = INITIAL_STATE, action ) => {
 				createPending: false
 			}
 
-		case eventActionTypes.CREATE_EVENT_FAILED: 
+		case noteActionTypes.ADD_NOTE_FAILED: 
 			return {
 				...state,
 				eventItem: action.payload.response.data,
 				feedbackMessage: action.payload.response.data.message,
 				isError: true
 			}
-	
-				
-//// Delete Event Reducer Funtions  ///////////////////////
-//////////////////////////////////////////////////////////
 
-		case eventActionTypes.DELETE_EVENT_PENDING: 
+		case noteActionTypes.TOGGLE_ADD_NOTE: 
 			return {
 				...state,
-				deletePending: true
-			};
-
-		case eventActionTypes.DELETE_EVENT_SUCCESS: 
-			return {
-				...state,
-				isSuccess: true,
-				deleteResponse: action.payload,
-				feedbackMessage: action.payload.data.message,
-				deletePending: false
-			};
-		
-		case eventActionTypes.DELETE_EVENT_FAILED: 
-			return {
-				...state,
-				isError: true,
-				deleteResponse: action.payload,
-				deletePending: false,
-				feedbackMessage: action.payload.response.data.message,
-			};
-		
-
-		case eventActionTypes.UPDATE_EVENT_SUCCESS:
-			return {
-				...state,
-				isSuccess: true,
-				updateResponse: action.payload.data,
-				feedbackMessage: action.payload.data.message,
-				updatePending: false
+				isAdd: !state.isAdd
 			}
-
-		case eventActionTypes.UPDATE_EVENT_FAILED:
-			return {
-				...state,
-				isError: true,
-				updateResponse: action.payload.response.data,
-				feedbackMessage: action.payload.response.data.message,
-				updatePending: false
-			}
-			
-		case eventActionTypes.UPDATE_EVENT_PENDING:
-			return {
-				...state,
-				updatePending: true
-			}
-
 
 		default: 
 			return state;

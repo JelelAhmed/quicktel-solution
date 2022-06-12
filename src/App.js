@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 
 import { Routes, Route, useNavigate } from 'react-router-dom';
 
-import AuthComponent from './components/utils/AuthComponent';
+import AuthComponent from './utils/AuthComponent';
 
 import Home from './routes/home/home';
 import LogIn from './routes/login/login';

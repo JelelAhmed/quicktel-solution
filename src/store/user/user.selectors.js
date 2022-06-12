@@ -8,10 +8,12 @@ export const selectCurrentUser = createSelector(
 	(user) => user.user
 );
 
-export const selectToken = createSelector(
-	[selectUser],
-	(user) => user.token
+export const selectUserId = createSelector(
+	[selectCurrentUser],
+	(user) => user.id
 );
+
+
 
 export const selectIsLoggedIn = createSelector(
 	[selectUser],

@@ -6,14 +6,13 @@ import { ReactComponent as AddIcon } from '../../assets/plus-alt.svg';
 import Spinner from 'react-spinkit';
 
 // import { selectUserError, selectUserSuccess, selectVerified, selectVerifyToken } from '../../redux/user/user.selectors';
-import { selectIsCreate, selectIsDelete, selectIsError, selectIsPending, selectIsSuccess, selectIsUpdate } from '../../store/event/event.selectors';
+import { selectIsAdd, selectIsCreate, selectIsDelete, selectIsError, selectIsPending, selectIsSuccess, selectIsUpdate } from '../../store/event/event.selectors';
 
 
 // import EventList from '../event-list/event-list.component';
 import Header from '../header/header-component';
-import CreateEvent from '../create-event/create-event.component';
+import AddNote from '../add-note/add-note.component';
 import PopupContainer from '../popup-container/popup-container.component';
-
 import FeedbackCard from '../feedback-card/feedback-card.component';
 
 import './dashboard.styles.scss';
@@ -26,7 +25,7 @@ const Dashboard = () => {
 	// const userSuccess = useSelector(selectUserSuccess);
 	// const userError = useSelector(selectUserError);
 	// const verified = useSelector(selectVerified);
-	const isCreate = useSelector(selectIsCreate);
+	const isAdd = useSelector(selectIsAdd);
 	const isDelete = useSelector(selectIsDelete);
 	const isUpdate = useSelector(selectIsUpdate);
 	const isPending = useSelector(selectIsPending);
@@ -45,8 +44,8 @@ const Dashboard = () => {
 			<div className="dashboard-create">
 				<AddIcon onClick={() => dispatch(toggleCreateEvent())}/>
 			</div>
-			{isCreate ?	
-				<PopupContainer ><CreateEvent /></PopupContainer>
+			{isAdd ?	
+				<PopupContainer ><AddNote /></PopupContainer>
 			 : null
 			}
 

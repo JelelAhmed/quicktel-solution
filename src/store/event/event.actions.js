@@ -1,19 +1,8 @@
-import { WazobiaClient } from "../../api/api";
-import eventActionTypes from "./event.types";
-
+import QuicktelApi from "../../api/api";
+import noteActionTypes from "./event.types";
 
 export const toggleCreateEvent = () => ({
-	type: eventActionTypes.TOGGLE_CREATE_EVENT,
-});
-
-export const toggleUpdateEvent = (event) => ({
-	type: eventActionTypes.TOGGLE_UPDATE_EVENT,
-	payload: event
-});
-
-export const toggleDeleteEvent = (event) => ({
-	type: eventActionTypes.TOGGLE_DELETE_EVENT,
-	payload: event
+	type: noteActionTypes.TOGGLE_ADD_NOTE,
 });
 
 
@@ -25,25 +14,11 @@ export const toggleDeleteEvent = (event) => ({
 // }
 
 
-// export const createEventItem = (url, body) => (dispatch) => {
-// 	dispatch({ type: eventActionTypes.CREATE_EVENT_PENDING })
-// 	WazobiaClient.post(url, body)
-// 	.then(data => dispatch({type: eventActionTypes.CREATE_EVENT_SUCCESS, payload: data}))
-// 	.catch(error => dispatch({type: eventActionTypes.CREATE_EVENT_FAILED, payload: error}))
-// }
-
-// export const updateEventItem = (url, event) => (dispatch) => {
-// 	dispatch({ type: eventActionTypes.UPDATE_EVENT_PENDING })
-// 	WazobiaClient.put(url, event)
-// 	.then(data => dispatch({type: eventActionTypes.UPDATE_EVENT_SUCCESS, payload: data}))
-// 	.catch(error => dispatch({type: eventActionTypes.UPDATE_EVENT_FAILED, payload: error}))
-// }
-
-// export const deleteEventItem = (url, event) => (dispatch) => {
-// 	dispatch({ type: eventActionTypes.DELETE_EVENT_PENDING })
-// 	WazobiaClient.delete(url, event)
-// 	.then(data => dispatch({type: eventActionTypes.DELETE_EVENT_SUCCESS, payload: data}))
-// 	.catch(error => dispatch({type: eventActionTypes.DELETE_EVENT_FAILED, payload: error}))
-// }
+export const addNoteItem = (url, body) => (dispatch) => {
+	dispatch({ type: noteActionTypes.ADD_NOTE_PENDING })
+	QuicktelApi.post(url, body)
+	.then(data => dispatch({type: noteActionTypes.ADD_NOTE_SUCCESS, payload: data}))
+	.catch(error => dispatch({type: noteActionTypes.ADD_NOTE_FAILED, payload: error}))
+}
 
 
