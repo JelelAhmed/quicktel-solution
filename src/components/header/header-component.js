@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { selectIsHidden, selectUserFirstName, selectUserLastName } from '../../store/user/user.selectors';
+import { selectIsHidden, selectUserFirstName } from '../../store/user/user.selectors';
 import { toggleLogoutHidden, logoutUser } from '../../store/user/user.actions';
 
 import { ReactComponent as ArrowDropdown } from '../../assets/down-arrow.svg';
@@ -12,13 +12,11 @@ import './header.styles.scss';
 const Header = () => {
 
 	const firstName = useSelector(selectUserFirstName);
-	const lastName = useSelector(selectUserLastName);
 	const isHidden = useSelector(selectIsHidden);
 
 
 
 	let first_name = firstName.charAt(0).toUpperCase() + firstName.slice(1);
-	let last_name = lastName.charAt(0).toUpperCase() + lastName.slice(1);
 
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
@@ -32,9 +30,9 @@ const Header = () => {
 
 	return (
 		<div className="header">
-			<div className="description">Dashboard</div>
+			<div className="description">Quicktel Notes</div>
 			<div className="profile"> 
-			  <div className="profile-name">{`${first_name} ${last_name}`}
+			  <div className="profile-name">Welcome, {`${first_name}`}
 				<ArrowDropdown onClick={() => dispatch(toggleLogoutHidden())} className="profile-dropdown"/>
 				</div>
 				{isHidden 

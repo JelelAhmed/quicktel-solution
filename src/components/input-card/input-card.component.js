@@ -43,8 +43,8 @@ const InputCard = ({
 								<textarea placeholder="Type here" onChange={inputBodyChange} className="item-note"></textarea>
 							</div>
 							<div className="item-buttons">
-								<button onClick={toggleCreateEvent} className="button inverted">Cancel</button>
-								<button onClick={handleAddNote} className="button">Create Event</button>
+								<button onClick={toggleCreateEvent} className="button inverted">Go Back</button>
+								<button onClick={handleAddNote} className="button">Add Note</button>
 							</div>
 						</div>
 					</div>

@@ -1,12 +1,16 @@
 import React, { useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { print } from 'graphql';
+import gql from 'graphql-tag';
 
 import { setInputPassword, setInputEmail, formValidation, clearFormfields } from "../../store/form/form.actions";
+import { getCurrentUser } from "../../store/user/user.actions";
 
-// import { setCurrentUser } from "../../store/user/user.actions";
+
 import { emailValidation } from "../../store/form/form.actions";
 import { selectEmail, selectFormValidity, selectIsEmail, selectPassword, selectShowPassword } from "../../store/form/form.selectors";
+
 
 import CustomButton from "../custom-button.component.js/custom-button.component";
 import FormInput from "../form-input.js/form-input.component";
@@ -15,7 +19,6 @@ import  './sign-in.styles.scss';
 
 const SignIn = () => {
 
-	const navigate = useNavigate();
 
 	const showPassword = useSelector(selectShowPassword);
 	const password = useSelector(selectPassword);
@@ -26,12 +29,26 @@ const SignIn = () => {
 	const dispatch = useDispatch();
 
 	const	handleSubmitSignIn = async (event) => {
-			event.preventDefault();
-			navigate('/')
-	  // 	await	dispatch(setCurrentUser('/tokens', {
-		// 	email: email,
-		// 	password: password
-		// }))			
+		event.preventDefault();
+
+		const SIGN_IN = gql`
+			mutation loginUser($email:String!, $password:String!) {
+				loginUser(email:$email, password:$password) { 
+					id,
+					firstName,
+					lastName,
+					email,
+				}
+			}
+		`
+
+		dispatch(getCurrentUser('/graphql', {
+			query: print(SIGN_IN),
+			variables: {
+				email: email,
+				password: password,
+			},
+		}))		
 	}
 
 

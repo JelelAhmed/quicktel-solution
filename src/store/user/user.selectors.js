@@ -9,35 +9,13 @@ export const selectCurrentUser = createSelector(
 );
 
 export const selectUserId = createSelector(
-	[selectCurrentUser],
-	(user) => user.id
+	[selectUser],
+	(user) => user.userId
 );
-
-
 
 export const selectIsLoggedIn = createSelector(
 	[selectUser],
 	(user) => user.isLoggedIn
-);
-
-export const selectUserSuccess = createSelector(
-	[selectUser],
-	(user) => user.userSuccess
-);
-
-export const selectUserError = createSelector(
-	[selectUser],
-	(user) => user.userError
-);
-
-export const selectVerified = createSelector(
-	[selectUser],
-	(user) => user.verified
-);
-
-export const selectUserFeedback = createSelector(
-	[selectUser],
-	(user) => user.userFeedback
 );
 
 export const selectIsHidden = createSelector(
@@ -46,26 +24,14 @@ export const selectIsHidden = createSelector(
 );
 
 export const selectUserFirstName = createSelector(
-	[selectUser],
+	[selectCurrentUser],
 	(user) => user.firstName
 );
 
 export const selectUserLastName = createSelector(
-	[selectUser],
+	[selectCurrentUser],
 	(user) => user.lastName
 );
-
-export const selectVerifyToken = createSelector(
-	[selectUser],
-	(user) => user.verifyToken
-);
-
-
-export const selectVerifyMessage = createSelector(
-	[selectUser],
-	(user) => user.verifyMessage
-);
-
 
 
 

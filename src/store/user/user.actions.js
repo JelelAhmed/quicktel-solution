@@ -9,14 +9,12 @@ export const setCurrentUser = (url, body) => (dispatch) => {
 		.catch(error => dispatch({type: userActionTypes.SET_USER_FAILED, payload: error}))
 }
 
-export const getCurrentUser = (url) => (dispatch) => {
+export const getCurrentUser = (url, body) => (dispatch) => {
 	dispatch({ type: userActionTypes.GET_USER_PENDING })
-	QuicktelApi.get(url)
+	QuicktelApi.post(url, body)
 		.then(data => dispatch({type: userActionTypes.GET_USER_SUCCESS, payload: data}))
 		.catch(error => dispatch({type: userActionTypes.GET_USER_FAILED, payload: error}))
 }
-
-
 
 export const logoutUser = () => ({
 	type: userActionTypes.LOGOUT_USER

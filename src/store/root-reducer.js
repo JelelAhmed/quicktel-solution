@@ -2,14 +2,14 @@ import { combineReducers } from "redux";
 
 import formReducer from "./form/form.reducer";
 import inputReducer from "./input/input.reducer";
-import eventReducer from "./event/event.reducers";
+import noteReducer from "./note/note.reducers";
 import userReducer from "./user/user.reducer";
 
 
 const rootReducers = combineReducers({
 	form: formReducer,
 	input: inputReducer,
-	event: eventReducer,
+	note: noteReducer,
 	user: userReducer
 });
 

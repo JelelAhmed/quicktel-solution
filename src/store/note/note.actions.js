@@ -1,17 +1,17 @@
 import QuicktelApi from "../../api/api";
-import noteActionTypes from "./event.types";
+import noteActionTypes from "./note.types";
 
 export const toggleCreateEvent = () => ({
 	type: noteActionTypes.TOGGLE_ADD_NOTE,
 });
 
 
-// export const getSavedEvents = (url, params) => (dispatch) => {
-// 	dispatch({ type: eventActionTypes.GET_EVENT_PENDING })
-// 	WazobiaClient.get(url, params)
-// 	.then(data => dispatch({type: eventActionTypes.GET_EVENT_SUCCESS, payload: data}))
-// 	.catch(error => dispatch({type: eventActionTypes.GET_EVENT_FAILED, payload: error}))
-// }
+export const getSavednotes = (url, params) => (dispatch) => {
+	dispatch({ type: noteActionTypes.GET_NOTE_PENDING })
+	QuicktelApi.post(url, params)
+	.then(data => dispatch({type: noteActionTypes.GET_NOTE_SUCCESS, payload: data}))
+	.catch(error => dispatch({type: noteActionTypes.GET_NOTE_FAILED, payload: error}))
+}
 
 
 export const addNoteItem = (url, body) => (dispatch) => {

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { print } from 'graphql';
 import gql from 'graphql-tag';
 
-import { addNoteItem, toggleCreateEvent } from '../../store/event/event.actions';
+import { addNoteItem, toggleCreateEvent } from '../../store/note/note.actions';
 
 import { selectInputBody, selectInputTitle } from '../../store/input/input.selectors';
 

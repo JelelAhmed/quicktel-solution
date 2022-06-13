@@ -1,10 +1,15 @@
 import { createSelector } from "reselect";
 
-const selectEvent = state => state.event;
+const selectEvent = state => state.note;
 
 export const selectIsAdd = createSelector(
 	[selectEvent],
 	(event) => event.isAdd
+);
+
+export const selectNoteAdd = createSelector(
+	[selectEvent],
+	(event) => event.noteAdd
 );
 
 export const selectIsUpdate = createSelector(
@@ -39,7 +44,7 @@ export const selectEventToDelete = createSelector(
 
 export const selectFetchedNotes = createSelector(
 	[selectEvent],
-	(event) => event.events
+	(event) => event.notes
 );
 
 export const selectFeedback = createSelector(

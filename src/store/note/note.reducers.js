@@ -1,8 +1,9 @@
-import noteActionTypes from "./event.types";
+import noteActionTypes from "./note.types";
 
 
 const INITIAL_STATE = {
-	events: [],
+	notes: [],
+	noteAdd: null,
 	isPending: true,
 
 
@@ -28,13 +29,13 @@ const INITIAL_STATE = {
 	
 };
 
-const eventReducer = (state = INITIAL_STATE, action ) => {
+const noteReducer = (state = INITIAL_STATE, action ) => {
 	switch (action.type) {
 
 		case noteActionTypes.GET_NOTE_SUCCESS:
 			return {
 				...state, 
-				events: action.payload.data.items,
+				notes: action.payload.data.data.getNotes,
 				isPending: false
 			}
 							
@@ -50,10 +51,7 @@ const eventReducer = (state = INITIAL_STATE, action ) => {
 		case noteActionTypes.ADD_NOTE_SUCCESS: 
 			return {
 				...state,
-				isSuccess: true,
-				eventItem: action.payload.data,
-				feedbackMessage: action.payload.data.message,
-				createPending: false
+				noteAdd: action.payload.data.data.addNote
 			}
 
 		case noteActionTypes.ADD_NOTE_FAILED: 
@@ -75,4 +73,4 @@ const eventReducer = (state = INITIAL_STATE, action ) => {
 	}
 }
 
-export default eventReducer;
+export default noteReducer;

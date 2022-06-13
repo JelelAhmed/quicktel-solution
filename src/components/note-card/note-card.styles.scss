@@ -1,0 +1,162 @@
+.card{
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	padding: 20px;
+	gap: 10px;
+	margin-bottom: 25px;
+
+	width: 420px;
+	height: 235px;
+
+	background: #FFFFFF;
+	border: 1px solid #F0F0F0;
+	border-radius: 8px;
+}
+
+.note {
+  display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	padding: 0px;
+	gap: 16px;
+
+	width: 380px;
+	height: 195px;
+
+
+	&-headline {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		padding: 0px;
+		gap: 4px;
+
+		width: 100%;
+		height: 42px;
+	}
+
+	&-tag {
+		width: 33px;
+		height: 16px;
+
+		font-family: 'Avenir';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 12px;
+		line-height: 16px;
+
+		color: #555658;
+
+	}
+
+	&-name {
+		width: 100%;
+		height: 22px;
+
+		display: flex;
+
+		font-family: 'Avenir';
+		font-style: normal;
+		font-weight: 500;
+		font-size: 16px;
+		line-height: 22px;
+		/* identical to box height */
+
+
+		color: #000000;
+	}
+
+	&-body {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		padding: 0px;
+		gap: 4px;
+		overflow:hidden;
+
+		width: 380px;
+		height: 77px;
+
+	}
+
+	&-content {
+		width: 380px;
+		height: 57px;
+
+		font-family: 'Avenir';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 19px;
+
+		color: #131415;
+	}
+
+	&-buttons {
+		display: flex;
+		flex-direction: row;
+		margin-left: auto;
+		margin-bottom: -1px;
+		padding: 0px;
+		gap: 20px;
+	}
+
+	&-author {
+		display: flex;
+		flex-direction: row;
+		margin-left: auto;
+		font-style: italic;
+		color: rgb(238, 145, 145);
+	}
+}
+
+.buttons {
+		letter-spacing: 0.5px;
+		padding: 0 35px 0 35px;
+		color: white;
+		border: none;
+		cursor: pointer;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border-radius: 4px;
+
+		font-family: 'Avenir';
+		font-style: normal;
+		font-weight: 500;
+		font-size: 14px;
+		line-height: 19px;
+
+		color: #FFFFFF;
+
+
+		width: 72px;
+		height: 36px;
+
+		background: #555658;
+		border-radius: 4px;
+	
+		&:hover {
+			background: #686e78;
+			color: black;
+			border: 1px solid black;
+		}
+
+	
+		&.inverted {
+			
+			background-color: white;
+			width: 64px;
+			height: 36px;
+			color: #20262F;
+			border: 1px solid #B7BCC4;
+			border-radius: 4px;
+	
+			&:hover {
+				background-color: rgb(170, 156, 156);
+				color: black;
+				border: none;
+			}
+		}
+	}

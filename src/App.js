@@ -11,7 +11,7 @@ import LogIn from './routes/login/login';
 import Register from './routes/register/register';
 
 import './App.styles.scss';
-import { selectIsLoggedIn } from './store/user/user.selectors';
+import { selectUserId } from './store/user/user.selectors';
 
 
 
@@ -20,13 +20,14 @@ import { selectIsLoggedIn } from './store/user/user.selectors';
 const  App = () => {
 
 	const navigate = useNavigate();
-  const isLoggedIn = useSelector(selectIsLoggedIn);
+	const userId = useSelector(selectUserId);
+	console.log(userId);
 
 useEffect(() => {
-	if(isLoggedIn) {
+	if(userId) {
 		navigate('/');
 	}
-}, [isLoggedIn])
+}, [userId])
 
 	return (
 		<div className="app">
