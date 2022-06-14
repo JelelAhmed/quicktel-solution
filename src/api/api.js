@@ -2,7 +2,7 @@ import axios from "axios";
 
 
 const QuicktelApi = axios.create({
-  baseURL: 'http://localhost:4000',
+  baseURL: 'https://dry-depths-52278.herokuapp.com/',
 	headers: {
 		'Content-Type': 'application/json',
 		'Authorization': ''

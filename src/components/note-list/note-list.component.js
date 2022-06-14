@@ -51,7 +51,7 @@ const NoteList = () => {
 
 	return (
 		<div className="notes">
-		{fetchedNotes ? (
+		{fetchedNotes.length ? (
 				fetchedNotes.map(({id, title, content, user}) => {
 						return (
 							<NoteCard
@@ -64,7 +64,7 @@ const NoteList = () => {
 						);
 					})
 			)
-			: <div>No note item to display. Click the button below to add notes</div> 
+			: <div className='notes-empty'>Nothing to Display. Click the button below to add notes</div> 
 		}
 		</div>
 	)

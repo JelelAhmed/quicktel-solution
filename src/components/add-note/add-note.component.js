@@ -14,12 +14,12 @@ import { selectUserId } from '../../store/user/user.selectors';
 const AddNote = () => {
 	const dispatch = useDispatch()
 
-	const userId = useSelector(selectUserId);
+	const { id } = useSelector(selectUserId);
 	const title = useSelector(selectInputTitle);
 	const content = useSelector(selectInputBody);
 
-	console.log(userId);
-
+	let userId = id;
+	
 
 	const handleAddNote = () => {
 

@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { selectIsHidden, selectUserFirstName } from '../../store/user/user.selectors';
 import { toggleLogoutHidden, logoutUser } from '../../store/user/user.actions';
+import { clearFormfields } from '../../store/form/form.actions';
 
 import { ReactComponent as ArrowDropdown } from '../../assets/down-arrow.svg';
 
@@ -22,8 +23,8 @@ const Header = () => {
 	const navigate = useNavigate();
 
 	const logoutCurrentUser = async () => {
-		
-	  (dispatch(logoutUser()));
+		dispatch(clearFormfields());
+	  dispatch(logoutUser());
 		navigate('login');
 	}
 

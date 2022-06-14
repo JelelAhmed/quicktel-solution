@@ -5,28 +5,8 @@ const INITIAL_STATE = {
 	notes: [],
 	noteAdd: null,
 	isPending: true,
-
-
-	eventToUpdate: null,
-	isUpdate: false,
-	updatePending: false,
-	updateResponse: [],
-
-	eventToDelete: null,
-	isDelete: false,
-	deletePending: false,
-	deleteResponse: [],
-
-
+	addIsPending: false,
 	isAdd: false,
-	createPending: true,
-	eventItem: [],
-
-	feedbackMessage: '',
-	isError: false,
-	isSuccess: false
-	
-	
 };
 
 const noteReducer = (state = INITIAL_STATE, action ) => {
@@ -47,19 +27,28 @@ const noteReducer = (state = INITIAL_STATE, action ) => {
 				isPending: false,
 			}
 
+		
+		case noteActionTypes.ADD_NOTE_PENDING: 
+			return {
+				...state,
+				addIsPending: true,
+			}
+
 	
 		case noteActionTypes.ADD_NOTE_SUCCESS: 
 			return {
 				...state,
-				noteAdd: action.payload.data.data.addNote
+				noteAdd: action.payload.data.data.addNote,
+				addIsPending: false,
+
 			}
 
 		case noteActionTypes.ADD_NOTE_FAILED: 
 			return {
 				...state,
-				eventItem: action.payload.response.data,
-				feedbackMessage: action.payload.response.data.message,
-				isError: true
+				isError: true,
+				addIsPending: false,
+
 			}
 
 		case noteActionTypes.TOGGLE_ADD_NOTE: 

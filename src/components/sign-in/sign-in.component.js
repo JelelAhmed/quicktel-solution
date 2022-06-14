@@ -42,7 +42,7 @@ const SignIn = () => {
 			}
 		`
 
-		dispatch(getCurrentUser('/graphql', {
+		dispatch(getCurrentUser('/graphql',{
 			query: print(SIGN_IN),
 			variables: {
 				email: email,

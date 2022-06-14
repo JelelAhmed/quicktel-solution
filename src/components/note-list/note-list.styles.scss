@@ -5,4 +5,13 @@
 	grid-template-columns: repeat(3, 1fr);
 	grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 	grid-gap: 32px;
+
+	&-empty {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-size: 2rem;
+		font-family: "Poppins";
+		font-weight: 900;
+	}
 }

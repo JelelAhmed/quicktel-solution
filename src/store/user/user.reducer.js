@@ -8,7 +8,7 @@ const INITIAL_STATE = {
 	userId: null,
 
 	isLoggedIn: false,
-	error: null,
+	errors: null,
 
 	isHidden: true,
 	
@@ -21,13 +21,17 @@ const userReducer = (state=INITIAL_STATE, action) => {
 		
 		case userActionTypes.SET_USER_PENDING:
 				return {...state, isPending: true}
+
+
 				
 		case userActionTypes.SET_USER_SUCCESS:
 			return {
 				...state, 
 				isPending: false,
 				user: action.payload.data.data.createUser,
-				userId: action.payload.data.data.createUser.id,
+				userId: action.payload.data.data.createUser,
+				errors: action.payload.data.errors,
+
 			}
 						
 		case userActionTypes.SET_USER_FAILED: 
@@ -35,6 +39,7 @@ const userReducer = (state=INITIAL_STATE, action) => {
 				...state, 
 				error: action.payload,
 				isPending: false,
+				errors: action.payload.data.errors,
 			}
 
 
@@ -48,7 +53,8 @@ const userReducer = (state=INITIAL_STATE, action) => {
 				...state, 
 				isPending: false,
 				user: action.payload.data.data.loginUser,
-				userId: action.payload.data.data.loginUser.id,
+				userId: action.payload.data.data.loginUser,
+				errors: action.payload.data.errors,
 				isLoggedIn: false
 			}
 							
@@ -68,8 +74,7 @@ const userReducer = (state=INITIAL_STATE, action) => {
 
 			case userActionTypes.LOGOUT_USER: 
 			return {
-				...state,
-				isLoggedIn: false,
+				INITIAL_STATE
 			}
 
 		default: 

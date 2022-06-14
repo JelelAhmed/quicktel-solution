@@ -5,7 +5,7 @@ import { toggleCreateEvent } from '../../store/note/note.actions';
 import { ReactComponent as AddIcon } from '../../assets/plus-alt.svg'; 
 import Spinner from 'react-spinkit';
 
-import { selectIsAdd, selectIsPending, } from '../../store/note/note.selectors';
+import { selectAddIsPending, selectIsAdd, selectIsPending } from '../../store/note/note.selectors';
 
 
 import Header from '../header/header-component';
@@ -21,6 +21,8 @@ const Dashboard = () => {
 	const dispatch = useDispatch();
 	const isAdd = useSelector(selectIsAdd);
 	const isPending = useSelector(selectIsPending);
+	const addIsPending = useSelector(selectAddIsPending);
+
 
 
 
@@ -40,7 +42,7 @@ const Dashboard = () => {
 			 : null
 			}
 
-			{isPending ?
+			{isPending || addIsPending  ?
 				<Spinner name='circle' className='spinner' fadeIn='none' />
 				: null
 			}

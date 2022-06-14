@@ -12,34 +12,9 @@ export const selectNoteAdd = createSelector(
 	(event) => event.noteAdd
 );
 
-export const selectIsUpdate = createSelector(
-	[selectEvent],
-	(event) => event.isUpdate
-);
-
-export const selectIsDelete = createSelector(
-	[selectEvent],
-	(event) => event.isDelete
-);
-
 export const selectIsPending = createSelector(
 	[selectEvent],
 	(event) => event.isPending
-);
-
-export const selectIsError = createSelector(
-	[selectEvent],
-	(event) => event.isError
-);
-
-export const selectIsSuccess = createSelector(
-	[selectEvent],
-	(event) => event.isSuccess
-);
-
-export const selectEventToDelete = createSelector(
-	[selectEvent],
-	(event) => event.eventToDelete
 );
 
 export const selectFetchedNotes = createSelector(
@@ -47,15 +22,13 @@ export const selectFetchedNotes = createSelector(
 	(event) => event.notes
 );
 
-export const selectFeedback = createSelector(
+export const selectAddIsPending = createSelector(
 	[selectEvent],
-	(event) => event.feedbackMessage
+	(event) => event.addIsPending
 );
 
-export const selectEventToUpdate = createSelector(
-	[selectEvent],
-	(event) => event.eventToUpdate
-);
+
+
 
 
 

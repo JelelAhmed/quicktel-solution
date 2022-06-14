@@ -5,11 +5,17 @@ import { selectUserId } from "../store/user/user.selectors";
 
 const AuthComponent = ({children}) => {
 
-	const userId = useSelector(selectUserId)
+	const user = useSelector(selectUserId)
+
+	let userId = null;
+
+	if(user) {
+		userId = user.id 
+	}
 
 	return (
 		<React.Fragment>
-			{userId ? children : <Navigate to='/login' replace />};
+			{user ? children : <Navigate to='/login' replace />};
 		</React.Fragment>
 	)
 }
